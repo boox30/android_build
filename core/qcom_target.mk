@@ -14,19 +14,19 @@ endef
 ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
 
     qcom_flags := -DQCOM_HARDWARE
-    qcom_flags += -DQCOM_BSP
+#    qcom_flags += -DQCOM_BSP
 
     TARGET_USES_QCOM_BSP := true
     TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
     # Enable DirectTrack for legacy targets
-    ifneq ($(filter msm7x30 msm8660 msm8960,$(TARGET_BOARD_PLATFORM)),)
-        ifeq ($(BOARD_USES_LEGACY_ALSA_AUDIO),true)
-            qcom_flags += -DQCOM_DIRECTTRACK
-        endif
+#    ifneq ($(filter msm7x30 msm8660 msm8960,$(TARGET_BOARD_PLATFORM)),)
+#        ifeq ($(BOARD_USES_LEGACY_ALSA_AUDIO),true)
+#            qcom_flags += -DQCOM_DIRECTTRACK
+#        endif
         # Enable legacy graphics functions
-        qcom_flags += -DQCOM_BSP_LEGACY
-    endif
+#        qcom_flags += -DQCOM_BSP_LEGACY
+#    endif
 
     # Enable extra offloading for post-805 targets
     ifneq ($(filter msm8992 msm8994,$(TARGET_BOARD_PLATFORM)),)
